@@ -1,41 +1,52 @@
 import React, { useState, useEffect } from "react";
+import { AppBar, Typography, Badge } from "@mui/material";
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 
 // SERVICES THAT CALL OUR API ENDPOINTS
-import { getAllProfiles } from "./services/profileService";
+import { getAllSongs } from "./services/profileService";
 
 function App() {
-  const [profiles, setProfiles] = useState(null);
+  const [songs, setSongs] = useState(null);
 
   useEffect(() => {
-    async function getProfiles() {
-      if (!profiles) {
-        const response = await getAllProfiles();
-        setProfiles(response);
+    async function getSongss() {
+      if (!songs) {
+        const response = await getAllSongs();
+        setSongs(response);
       }
     }
 
-    getProfiles();
-  }, [profiles]);
+    getSongss();
+  }, [songs]);
 
-  const renderProfile = (user) => {
+  const renderSong = (song) => {
     return (
-      <li key={user._id}>
-        <h3>
-          {`${user.first_name} 
-          ${user.last_name}`}
-        </h3>
-        <p>{user.location}</p>
+      <li key={song._id}>
+        <Typography variant="h3" gutterBottom component="div">
+          {`${song.author} `}
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          {song.lyrics}
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          {song.duration}
+        </Typography>
       </li>
     );
   };
 
   return (
     <div>
+      <AppBar>
+        <Badge badgeContent={4} color="primary">
+          <NotificationsNoneIcon color="action" />
+        </Badge>
+      </AppBar>
       <ul>
-        {profiles && profiles.length > 0 ? (
-          profiles.map((profile) => renderProfile(profile))
+        {songs && songs.length > 0 ? (
+          songs.map((song) => renderSong(song))
         ) : (
-          <p>No profiles found</p>
+          <p>No songs found</p>
         )}
       </ul>
     </div>

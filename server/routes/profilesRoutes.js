@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
-const Profile = mongoose.model("profiles");
+const Song = mongoose.model("songs");
 
 const profileRoutes = (app) => {
   app.get(`/api/profile`, async (req, res) => {
-    const profiles = await Profile.find();
+    const songs = await Song.find();
 
-    return res.status(200).send(profiles);
+    return res.status(200).send(songs);
   });
 
   app.post(`/api/profile`, async (req, res) => {
