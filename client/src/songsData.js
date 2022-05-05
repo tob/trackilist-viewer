@@ -1,73 +1,66 @@
-// Below is some initial sample data to get you started.
-
-use("tobia"); // This is our example database. Make sure you don't call your database "example_db".
-
-// The drop() command destroys all data from a collection.
-// Make sure you run it against the correct database and collection.
-db.songs.drop();
-
-// Insert a few documents into the profiles collection.
-db.songs.insertMany([  
-    {
-         "title": "Baby please don't go",
-  "version": "ac/dc",
-  "order": 2,
-  "fontSize": 1,
-  "lyrics": `Baby, please don't go \\n
-  Baby, please don't go \\n
-  Baby, please don't go down to New Orleans \\n
-  You know I love you so \\n
-  Baby, please don't go \\n
-  \\n
-  Baby, your man done gone \\n
-  Well, your man done gone \\n
-  Well, your man done gone, left the county farm \\n
-  He had his shackles on \\n
-  Baby, please don't go \\n
-  \\n
-  Before I be your dog \\n
-  Before I be your dog \\n
-  Before I be your dog to get you way down here \\n
-  I make you walk alone \\n
-  Baby, please don't go \\n
-  Hey \\n
-  \\n
-  Baby, please don't go \\n
-  Baby, please don't go \\n
-  Baby, please don't go down to New Orleans \\n
-  You know I love you so \\n
-  Baby, please don't go \\n
-  \\n
-  Before I be your dog \\n
-  Before I be your dog \\n
-  Before I be your dog get you way down here \\n
-  Make you walk alone \\n
-  Baby, please don't go \\n
-  \\n
-  Know how I feel right now \\n
-  My baby leavin', on that midnight train \\n
-  And I'm cryin' \\n
-  \\n
-  Baby, please don't go \\n
-  Oh, baby please don't go \\n
-  Baby, please don't go down to New Orleans \\n
-  You know I love you so \\n
-  Baby, please don't go, yeah \\n
-  \\n
-  Before I be your dog \\n
-  Before I be your dog \\n
-  Before I be your dog to get you way down here \\n
-  I make you walk alone \\n
-  Baby, please don't go, yeah \\n
-  \\n
-  Alright`,
-    },
-    {
-         "title": "Going up the country",
-  "version": "Canned heat",
-  "order": 1,
-  "fontSize": 2,
-  "lyrics":`I'm going up the country \\n
+export const songsData = [
+  {
+    _id: "1",
+    title: "Baby please don't go",
+    version: "ac/dc",
+    order: 2,
+    fontSize: 1,
+    lyrics: `Baby, please don't go \\n
+Baby, please don't go \\n
+Baby, please don't go down to New Orleans \\n
+You know I love you so \\n
+Baby, please don't go \\n
+\\n
+Baby, your man done gone \\n
+Well, your man done gone \\n
+Well, your man done gone, left the county farm \\n
+He had his shackles on \\n
+Baby, please don't go \\n
+\\n
+Before I be your dog \\n
+Before I be your dog \\n
+Before I be your dog to get you way down here \\n
+I make you walk alone \\n
+Baby, please don't go \\n
+Hey \\n
+\\n
+Baby, please don't go \\n
+Baby, please don't go \\n
+Baby, please don't go down to New Orleans \\n
+You know I love you so \\n
+Baby, please don't go \\n
+\\n
+Before I be your dog \\n
+Before I be your dog \\n
+Before I be your dog get you way down here \\n
+Make you walk alone \\n
+Baby, please don't go \\n
+\\n
+Know how I feel right now \\n
+My baby leavin', on that midnight train \\n
+And I'm cryin' \\n
+\\n
+Baby, please don't go \\n
+Oh, baby please don't go \\n
+Baby, please don't go down to New Orleans \\n
+You know I love you so \\n
+Baby, please don't go, yeah \\n
+\\n
+Before I be your dog \\n
+Before I be your dog \\n
+Before I be your dog to get you way down here \\n
+I make you walk alone \\n
+Baby, please don't go, yeah \\n
+\\n
+Alright`,
+  },
+  {
+    _id: "2",
+    title: "Going up the country",
+    version: "Canned heat",
+    order: 1,
+    fontSize: 2,
+    lyrics: `I'm going up the country \\n
 Baby, don't you wanna go? \\n
 I'm going up the country \\n
 Baby, don't you wanna go? \\n
@@ -91,59 +84,63 @@ But we might even leave the U.S.A. \\n
 \\n
 No use of you running or screaming and crying \\n
 'Cause you've got a home, man \\n
-Long as I've got mine`
-    },
-    {
-         "title": "Mary had a little lamb",
-  "version": "Stevie Ray Vaughan",
-  "order": 3,
-  "fontSize": 2,
-  "lyrics":`Mary had a little lamb \\n
-  His fleece was white as snow \\n
-  Everywhere that child went \\n
-  Your little lamb was sure to go \\n
-   \\n
-  He followed her to school one day \\n
-  And broke the teacher's rule \\n
-  What a time did they have \\n
-  That day at school. \\n
-   \\n
-  Tisket tasket baby \\n
-  A green and yellow basket \\n
-  Sent a letter to my baby \\n
-  On my way I passed it \\n`
+Long as I've got mine`,
   },
   {
-  "title": "Going down",
-  "version": "Freddie King",
-  "order": 4,
-  "fontSize": 2,
-  "lyrics":`I'm going down \\n
+    _id: "3",
+    title: "Mary had a little lamb",
+    version: "Stevie Ray Vaughan",
+    order: 3,
+    fontSize: 2,
+    lyrics: `Mary had a little lamb \\n
+His fleece was white as snow \\n
+Everywhere that child went \\n
+Your little lamb was sure to go \\n
+\\n
+He followed her to school one day \\n
+And broke the teacher's rule \\n
+What a time did they have \\n
+That day at school. \\n
+\\n
+Tisket tasket baby \\n
+A green and yellow basket \\n
+Sent a letter to my baby \\n
+On my way I passed it \\n`,
+  },
+  {
+    _id: "4",
+    title: "Going down",
+    version: "Freddie King",
+    order: 4,
+    fontSize: 2,
+    lyrics: `I'm going down \\n
 I'm going, down, down, down, down, down \\n
 Yes, I'm going down, yes \\n
 I'm going down, down, down, down, down \\n
 Yes, I've got my feet in the window \\n
 Got my head on the ground \\n
- \\n
+\\n
 Let me down \\n
 And close that box car door \\n
 Yes, let me down \\n
 And close that box car door \\n
 Well, I'm goin' back to Chattanooga \\n
 And sleep on sister Irene's door \\n
- \\n
+\\n
 Yes, I'm going down \\n
 I'm going, down, down, down, down, down \\n
 I'm going down \\n
 I'm going down, down, down, down, down \\n
 Yes, I've got my feet in the window \\n
-Got my head on the ground`},
+Got my head on the ground`,
+  },
   {
-  "title": "Roadhouse Blues",
-  "version": "The doors",
-  "order": 5,
-  "fontSize": 1,
-  "lyrics":`Keep your eyes on the road \\n
+    _id: "5",
+    title: "Roadhouse Blues",
+    version: "The doors",
+    order: 5,
+    fontSize: 1,
+    lyrics: `Keep your eyes on the road \\n
 Your hand upon the wheel \\n
 Keep your eyes on the road \\n
 Your hand upon the wheel \\n
@@ -197,13 +194,15 @@ Let it roll, baby, roll \\n
 Let it roll, baby, roll \\n
 Let it roll, baby, roll \\n
 Let it roll \\n
-All night long`},
+All night long`,
+  },
   {
-  "title": "Take it to the limit",
-  "version": "Eagles",
-  "order": 6,
-  "fontSize": 1,
-  "lyrics":`All alone at the end of the evening \\n
+    _id: "6",
+    title: "Take it to the limit",
+    version: "Eagles",
+    order: 6,
+    fontSize: 1,
+    lyrics: `All alone at the end of the evening \\n
 When the bright lights have faded to blue \\n
 I was thinking 'bout a woman who might have \\n
 Loved me and I never knew \\n
@@ -214,16 +213,16 @@ And it's so hard to change \\n
 But the dreams I've seen lately \\n
 Keep on turning out and burning out \\n
 And turning out the same \\n
- \\n
+\\n
 So put me on a highway \\n
 And show me a sign \\n
 And take it to the limit one more time \\n
- \\n
+\\n
 You can spend all your time making money \\n
 You can spend all your love making time \\n
 If it all fell to pieces tomorrow \\n
 Would you still be mine? \\n
- \\n
+\\n
 And when you're looking for your freedom \\n
 (Nobody seems to care) \\n
 And you can't find the door \\n
@@ -231,58 +230,60 @@ And you can't find the door \\n
 When there's nothing to believe in \\n
 Still you're coming back, you're running back \\n
 You're coming back for more \\n
- \\n
+\\n
 So put me on a highway \\n
 And show me a sign \\n
 And take it to the limit one more time \\n
- \\n
+\\n
 Take it to the limit \\n
 Take it to the limit \\n
 Take it to the limit one more time \\n
- \\n
+\\n
 Take it to the limit \\n
 Take it to the limit \\n
 Take it to the limit \\n
 One more time \\n
- \\n
+\\n
 Take it to the limit \\n
 Take it to the limit \\n
 Come on and \\n
 Take it to the limit \\n
 One more time \\n
- \\n
+\\n
 Take it to the limit \\n
 Take it to the limit \\n
 You got to \\n
 Take it to the limit \\n
 One more time \\n
- \\n
+\\n
 Take it to the limit \\n
 Take it to the limit \\n
 Take it to the limit \\n
 One more time \\n
- \\n
+\\n
 Take it to the limit \\n
 Take it to the limit \\n
 Come on and \\n
 Take it to the limit \\n
 One more time \\n
- \\n
+\\n
 Take it to the limit \\n
 Take it to the limit \\n
 Take it to the limit \\n
 One more time \\n
- \\n
+\\n
 Take it to the limit \\n
 Take it to the limit \\n
 Take it to the limit \\n
-One more time`},
+One more time`,
+  },
   {
-  "title": `Don’t Owe You a Thang`,
-  "version": "Gary Clark jr.",
-  "order": 7,
-  "fontSize": 1,
-  "lyrics":`Well \\n
+    _id: "7",
+    title: `Don’t Owe You a Thang`,
+    version: "Gary Clark jr.",
+    order: 7,
+    fontSize: 1,
+    lyrics: `Well \\n
 I ain't got no money \\n
 No fancy car \\n
 Ain't got no excuses baby \\n
@@ -348,17 +349,19 @@ That's alright \\n
 I ain't buying you no diamond ring \\n
 That's alright \\n
 Well, we ain't gettin' married, nah \\n
-I ain't buying you no diamond ring`}, 
+I ain't buying you no diamond ring`,
+  },
   {
-  "title": "Fire and brimstone", 
-  "version": "Ghetts", 
-  "order": 8,
-  "fontSize": 1,
-  "lyrics":`How long have I been low? \\n
+    _id: "8",
+    title: "Fire and brimstone",
+    version: "Ghetts",
+    order: 8,
+    fontSize: 1,
+    lyrics: `How long have I been low? \\n
 When's the last time man had to wait till dark then climb through a window? \\n
 When's the last time man had to hide in bush and silent a ringtone? \\n
 When's the last time man had to go 'round there with fire and brimstone? \\n
- \\n
+\\n
 Blue lights in my rearview \\n
 New life, career too \\n
 My girl said you're legit now \\n
@@ -383,17 +386,17 @@ Trap house smokey \\n
 I know about bare fumes \\n
 Ran from the police \\n
 Window and I hear boom \\n
- \\n
+\\n
 How long have I been low? \\n
 When's the last time man had to wait till dark then climb through a window? \\n
 When's the last time man had to hide in bush and silent a ringtone? \\n
 When's the last time man had to go 'round there with fire and brimstone? \\n
- \\n
+\\n
 How long have I been low? \\n
 When's the last time man had to wait till dark then climb through a window? \\n
 When's the last time man had to hide in bush and silent a ringtone? \\n
 When's the last time man had to go 'round there with fire and brimstone? \\n
- \\n
+\\n
 Distant memory \\n
 Chase through Blackwall Tunnel \\n
 Went for a different entry \\n
@@ -415,22 +418,24 @@ I did not surrender \\n
 Stereotyped by any system I enter \\n
 TDK, nah, I mean TDA, nah, I mean GBH \\n
 Free Titch, free Ashman, free Tyler, I feel his pain \\n
- \\n
+\\n
 How long have I been low? \\n
 When's the last time man had to wait till dark then climb through a window? \\n
 When's the last time man had to hide in bush and silent a ringtone? \\n
 When's the last time man had to go 'round there with fire and brimstone? \\n
- \\n
+\\n
 How long have I been low? \\n
 When's the last time man had to wait till dark then climb through a window? \\n
 When's the last time man had to hide in bush and silent a ringtone? \\n
-When's the last time man had to go 'round there with fire and brimstone?`},
-    {
-  "title": "Heartattack And Vine",
-  "version": "Tom Waits",
-  "order": 9,
-  "fontSize": 1,
-  "lyrics":`Liar liar with your pants on fire \\n
+When's the last time man had to go 'round there with fire and brimstone?`,
+  },
+  {
+    _id: "9",
+    title: "Heartattack And Vine",
+    version: "Tom Waits",
+    order: 9,
+    fontSize: 1,
+    lyrics: `Liar liar with your pants on fire \\n
 White spades hangin' on the telephone wire \\n
 Gamblers reevaluate along the dotted line \\n
 You'll never recognize yourself on heartattack and vine \\n
@@ -478,13 +483,15 @@ You can see a million of 'em on heartattack and vine \\n
 Boney's high on china white, Shorty found a punk \\n
 Don't you know there ain't no devil, there's just God when he's drunk \\n
 Well this stuff will probably kill you, let's do another line \\n
-What you say you meet me down on heartattack and vine`},
-    {
-  "title": "Johnny B. Goode ",
-  "version": "Chuck Berry",
-  "order": 10,
-  "fontSize": 1,
-  "lyrics":`Deep down in Louisiana close to New Orleans \\n
+What you say you meet me down on heartattack and vine`,
+  },
+  {
+    _id: "10",
+    title: "Johnny B. Goode ",
+    version: "Chuck Berry",
+    order: 10,
+    fontSize: 1,
+    lyrics: `Deep down in Louisiana close to New Orleans \\n
 Way back up in the woods among the evergreens \\n
 There stood a log cabin made of earth and wood \\n
 Where lived a country boy named Johnny B. Goode \\n
@@ -525,13 +532,15 @@ Go go go Johnny go \\n
 Go go go Johnny go \\n
 Go go go Johnny go \\n
 Go \\n
-Johnny B. Goode`},
-    {
-  "title": "Can't teach an old dog new tricks",
-  "version": "Seasick Steve",
-  "order": 11,
-  "fontSize": 2,
-  "lyrics":`There must be something wrong with me \\n
+Johnny B. Goode`,
+  },
+  {
+    _id: "11",
+    title: "Can't teach an old dog new tricks",
+    version: "Seasick Steve",
+    order: 11,
+    fontSize: 2,
+    lyrics: `There must be something wrong with me \\n
 What it is I can't quite see \\n
 I can't seem to do nothing right. \\n
 Maybe I need to change my style \\n
@@ -567,52 +576,54 @@ You can't teach an old dog \\n
 You can't teach an old dog \\n
 You can't teach \\n
 You can't teach \\n
-You can't teach`},
-      {
-  "title": "Personal Jesus",
-  "version": "Depeche mode",
-  "order": 12,
-  "fontSize": 2,
-  "lyrics":`Reach out and touch faith \\n
- \\n
+You can't teach`,
+  },
+  {
+    _id: "12",
+    title: "Personal Jesus",
+    version: "Depeche mode",
+    order: 12,
+    fontSize: 2,
+    lyrics: `Reach out and touch faith \\n
+\\n
 Your own personal Jesus \\n
 Someone to hear your prayers \\n
 Someone who cares \\n
 Your own personal Jesus \\n
 Someone to hear your prayers \\n
 Someone who's there \\n
- \\n
+\\n
 Feeling unknown and you're all alone \\n
 Flesh and bone by the telephone \\n
 Lift up the receiver, I'll make you a believer \\n
 Take second best, put me to the test \\n
 Things on your chest you need to confess \\n
 I will deliver, you know I'm a forgiver \\n
- \\n
+\\n
 Reach out and touch faith \\n
 Reach out and touch faith \\n
- \\n
+\\n
 Your own personal Jesus \\n
 Someone to hear your prayers \\n
 Someone who cares \\n
 Your own personal Jesus \\n
 Someone to hear your prayers \\n
 Someone who's there \\n
- \\n
+\\n
 Feeling unknown and you're all alone \\n
 Flesh and bone by the telephone \\n
 Lift up the receiver, I'll make you a believer \\n
 I will deliver, you know I'm a forgiver \\n
- \\n
+\\n
 Reach out and touch faith \\n
 Your own personal Jesus \\n
 Reach out and touch faith \\n
 Reach out and touch faith \\n
 Reach out and touch faith \\n
- \\n
+\\n
 Reach out and touch faith \\n
 Reach out and touch faith \\n
 (Reach out, reach out) \\n
-Reach out and touch faith`},
-
-  ]);
+Reach out and touch faith`,
+  },
+];

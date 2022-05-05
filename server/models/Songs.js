@@ -3,8 +3,9 @@ const { Schema } = mongoose;
 
 const songSchema = new Schema({
   title: String,
-  author: String,
-  duration: Number,
+  version: String,
+  order: Number,
+  fontSize: Number,
   lyrics: String,
   date: String
 });

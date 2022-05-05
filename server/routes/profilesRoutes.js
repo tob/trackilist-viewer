@@ -2,13 +2,13 @@ const mongoose = require("mongoose");
 const Song = mongoose.model("songs");
 
 const profileRoutes = (app) => {
-  app.get(`/api/profile`, async (req, res) => {
+  app.get(`/api/songs`, async (req, res) => {
     const songs = await Song.find();
 
     return res.status(200).send(songs);
   });
 
-  app.post(`/api/profile`, async (req, res) => {
+  app.post(`/api/song`, async (req, res) => {
     const profile = await Profile.create(req.body);
 
     return res.status(201).send({
@@ -17,7 +17,7 @@ const profileRoutes = (app) => {
     });
   });
 
-  app.put(`/api/profile/:id`, async (req, res) => {
+  app.put(`/api/song/:id`, async (req, res) => {
     const { id } = req.params;
 
     const profile = await Profile.findByIdAndUpdate(id, req.body);
@@ -28,7 +28,7 @@ const profileRoutes = (app) => {
     });
   });
 
-  app.delete(`/api/profile/:id`, async (req, res) => {
+  app.delete(`/api/song/:id`, async (req, res) => {
     const { id } = req.params;
 
     const profile = await Profile.findByIdAndDelete(id);
