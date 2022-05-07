@@ -10,6 +10,7 @@ const SongList = () => {
   const [songs, setSongs] = useState(null);
   const [dragId, setDragId] = useState();
 
+
   const handleDrag = (ev) => {
     console.log(ev.currentTarget.id)
     setDragId(ev.currentTarget.id);
@@ -55,14 +56,14 @@ const SongList = () => {
 
   return (
     <>
-      <Router>
+      <Router basename={'/trackilist-viewer'}>
         <Switch>
           <Route path="/about">
             <h1>RussMatazz</h1>
             <p>This is a little web app to handle our tracklist</p>
           </Route>
           <Route path="/:songId">
-            {songs ? <Song songs={songs} /> : "no songs yet"}
+            {songs && songs.length > 0 ? <Song songs={songs} /> : "no songs yet"}
           </Route>
           <Route path="/">
             <Stack spacing={2}>

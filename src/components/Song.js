@@ -7,7 +7,7 @@ import { Navigation } from "./Navigation";
 export const Song = ({ songs }) => {
   let { songId } = useParams();
   const song = songs.find((song) => song._id === songId);
-  const [fontSize, setFontSize] = useState(song.fontSize);
+  const [fontSize, setFontSize] = useState(1);
   const currentIndex = songs.indexOf(song) || 0;
   const prevSong =
     currentIndex > 0 ? songs[currentIndex - 1] : songs[songs.length - 1];
@@ -15,7 +15,8 @@ export const Song = ({ songs }) => {
   const nextSong =
     currentIndex < songs.length - 1 ? songs[currentIndex + 1] : songs[0];
 
-  const formattedLyrics = song.lyrics.replace(/\\n/g, "<br />\n");
+  const formattedLyrics =
+    song && song.lyrics && song.lyrics.replace(/\\n/g, "<br />\n");
 
   const increaseFontSize = () => {
     setFontSize(fontSize + 0.1);
@@ -25,7 +26,7 @@ export const Song = ({ songs }) => {
     setFontSize(fontSize - 0.1);
   };
 
-  return (
+  return song && song.title ? (
     <div>
       <Typography
         variant="body1"
@@ -44,5 +45,5 @@ export const Song = ({ songs }) => {
         title={song.title}
       />
     </div>
-  );
+  ) : null;
 };

@@ -31,7 +31,6 @@ export const Navigation = ({
       elevation={3}
     >
       <BottomNavigation
-        showLabels
         value={value}
         onChange={(event, newValue) => {
           setValue(newValue);
