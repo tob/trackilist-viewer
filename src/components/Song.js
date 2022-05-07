@@ -38,8 +38,8 @@ export const Song = ({ songs }) => {
         dangerouslySetInnerHTML={{ __html: formattedLyrics }}
       ></Typography>
       <Navigation
-        prev={prevSong._id}
-        next={nextSong._id}
+        prev={{ title: prevSong.title, id: prevSong._id }}
+        next={{ title: nextSong.title, id: nextSong._id }}
         increaseFontSize={increaseFontSize}
         decreaseFontSize={decreaseFontSize}
         title={song.title}
