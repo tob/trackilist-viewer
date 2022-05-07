@@ -626,4 +626,55 @@ Reach out and touch faith \\n
 (Reach out, reach out) \\n
 Reach out and touch faith`,
   },
+  {
+    _id: "13",
+    title: "Funk #49",
+    version: "James Gang",
+    order: 13,
+    fontSize: 2,
+    lyrics: `I sleep all day, out all night \\n
+    I know where you're goin' \\n
+    I don't think that's actin' right \\n
+    You don't think it's showin' \\n
+    \\n
+    A jumpin' up, fallin' down \\n
+    Don't misunderstand me \\n
+    You don't think that I know your plan \\n
+    What you tryin' to hand me? \\n
+    \\n
+    Out all night, sleep all day \\n
+    I know what you're doin' \\n
+    If you're gonna act that way \\n
+    I think there's trouble brewin'`
+  },
+  {
+    _id: "14",
+    title: "Cut my wings",
+    version: "James Gang",
+    order: 14,
+    fontSize: 2,
+    lyrics: `Cut my wings \\n
+    Shot me down I cannot fly \\n
+    Cut my wings \\n
+    Shot me down I cannot fly \\n
+    \\n
+    When I lay my head down \\n
+    On my bed [unverified] I sure do cry \\n
+    \\n
+    Cap'n how long \\n
+    Must I stand your evil ways? \\n
+    \\n
+    Cap'n how long \\n
+    Must I stand you evil ways? \\n
+    \\n
+    One day I get outta here \\n
+    It's gonna be your very last day \\n
+    \\n
+    Cap'n how long \\n
+    Must I stand you evil ways? \\n
+    \\n
+    One day I get outta here \\n
+    It's gonna be your very last day \\n
+    `
+  }
 ];
