@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Stack, Card, CardHeader, Avatar, CardActionArea, Typography } from "@mui/material";
+import {
+  Stack,
+  Card,
+  CardHeader,
+  Avatar,
+  CardActionArea,
+  IconButton,
+} from "@mui/material";
+import { ArrowDropDown, ArrowDropUp } from "@mui/icons-material";
 import { Song } from "./components/Song";
 
 // SERVICES THAT CALL OUR API ENDPOINTS
@@ -11,9 +19,31 @@ const SongList = () => {
   const [dragId, setDragId] = useState();
 
   const handleDrag = (ev) => {
-    console.log(ev.currentTarget.id)
+    console.log(ev.currentTarget.id);
     setDragId(ev.currentTarget.id);
   };
+
+  function moveElement(from, to) {
+    const newSongsOrder = songs.reduce((prev, current, idx, self) => {
+      if (from === to) {
+        prev.push(current);
+      }
+      if (idx === from) {
+        return prev;
+      }
+      if (from < to) {
+        prev.push(current);
+      }
+      if (idx === to) {
+        prev.push(self[from]);
+      }
+      if (from > to) {
+        prev.push(current);
+      }
+      return prev;
+    }, []);
+    setSongs(newSongsOrder);
+  }
 
   const handleDrop = (ev) => {
     const dragSong = songs.find((song) => song._id === dragId);
@@ -35,7 +65,7 @@ const SongList = () => {
       return a.order - b.order;
     });
 
-    console.log(newSongsState)
+    console.log(newSongsState);
     setSongs(newSongsState);
   };
 
@@ -55,14 +85,18 @@ const SongList = () => {
 
   return (
     <>
-      <Router>
+      <Router basename={"/trackilist-viewer"}>
         <Switch>
           <Route path="/about">
             <h1>RussMatazz</h1>
             <p>This is a little web app to handle our tracklist</p>
           </Route>
           <Route path="/:songId">
-            {songs ? <Song songs={songs} /> : "no songs yet"}
+            {songs && songs.length > 0 ? (
+              <Song songs={songs} />
+            ) : (
+              "no songs yet"
+            )}
           </Route>
           <Route path="/">
             <Stack spacing={2}>
@@ -74,17 +108,42 @@ const SongList = () => {
                     draggable={true}
                     onDragOver={(ev) => ev.preventDefault()}
                     onDragStart={handleDrag}
+                    onTouchStart={handleDrag}
                     onDrop={handleDrop}
+                    onTouchEnd={handleDrop}
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "stretch",
+                    }}
                   >
+                    {index > 0 && (
+                      <CardActionArea
+                        onClick={() => moveElement(index, index - 1)}
+                        sx={{
+                          width: "auto",
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        <ArrowDropUp />
+                      </CardActionArea>
+                    )}
                     <CardActionArea component={Link} to={`/${song._id}`}>
-                      <CardHeader
-                        avatar={<Avatar aria-label="song">{index + 1}</Avatar>}
-                        action={
-                          <Typography>{song.version}</Typography>
-                        }
-                        title={song.title}
-                      />
+                      <CardHeader title={song.title} subheader={song.version} />
                     </CardActionArea>
+                    {index < songs.length - 1 && (
+                      <CardActionArea
+                        onClick={() => moveElement(index, index + 1)}
+                        sx={{
+                          width: "auto",
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        <ArrowDropDown />
+                      </CardActionArea>
+                    )}
                   </Card>
                 ))
               ) : (
